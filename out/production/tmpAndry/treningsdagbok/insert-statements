@@ -1,0 +1,54 @@
+insert into treningsøkt(dato, tidspunkt, varighet, form, prestasjon, notat) values('2017-03-14', '170000', 60, 4, 7, 'helt ok');
+insert into treningsøkt(dato, tidspunkt, varighet, form, prestasjon, notat) values('2017-03-15', '175000', 50, 5, 6, 'helt ok+');
+insert into treningsøkt(dato, tidspunkt, varighet, form, prestasjon, notat) values('2017-03-03', '070000', 120, 9, 8, 'ganske bra');
+
+insert into øvelse values(1, 'benkpress');
+insert into øvelse values(2, 'sit-ups');
+insert into øvelse values(3, 'pull-ups');
+insert into øvelse values(4, 'løping');
+
+insert into øvelsepåøkt values(1, 1);
+insert into øvelsepåøkt values(1, 2);
+insert into øvelsepåøkt values(2, 4);
+insert into øvelsepåøkt values(2, 1);
+insert into øvelsepåøkt values(3, 3);
+
+INSERT INTO øvelse
+VALUES (5,"lol");
+
+INSERT INTO øvelse
+VALUES (6,"lool");
+
+INSERT INTO apparat
+VALUES (1,"anavn","looool");
+  
+INSERT INTO øvelsemedapparat
+VALUES (1,20,5,1);
+
+INSERT INTO øvelsemedapparat
+VALUES (2,20,5,1);
+
+INSERT INTO øvelse
+VALUES (7,"hopp");
+
+INSERT INTO øvelse
+VALUES(8, "knebøy");
+
+INSERT INTO øvelse
+VALUES(9,"markløft");
+
+INSERT INTO øvelsesgruppe
+VALUES(1,"bein");
+
+INSERT INTO øvelsesgruppe
+VALUES(2,"rygg");
+
+
+INSERT INTO øvelseigruppe
+VALUES(1,8);
+
+INSERT INTO øvelseigruppe
+VALUES(1,7);
+
+INSERT INTO øvelseigruppe
+VALUES(2,9);
