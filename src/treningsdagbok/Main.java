@@ -14,12 +14,12 @@ public class Main {
 		while (true) {
 		
 	    	System.out.println( "Velg din funksjonalitet (skriv inn tallet): \n"
-	    			+ "1) \t Sett registrere nye apparater, �velser og trenings�kter \n"
-	    			+ "2) \t Her finner du informasjon om de n siste trenings�ktene \n"
-	    			+ "3) \t Her kan du for hver enkelt �velse se en resultatlogg i et gitt tidsintervall \n"
-	    			+ "4) \t Her kan du lage nye �velsesgrupper og finne ut hvilke �velser som er i hvilken gruppe \n"
-	    			+ "5) \t Her kan du finne ut hvilke �velser du kan gj�re p� et apparat \n"
-	    			+ "0) \t Skriv 0 om du �nsker � avslutte programmet");
+	    			+ "1) \t Sett registrere nye apparater, øvelser og treningsøkter \n"
+	    			+ "2) \t Her finner du informasjon om de n siste treningsøktene \n"
+	    			+ "3) \t Her kan du for hver enkelt øvelse se en resultatlogg i et gitt tidsintervall \n"
+	    			+ "4) \t Her kan du lage nye øvelsesgrupper og finne ut hvilke øvelser som er i hvilken gruppe \n"
+	    			+ "5) \t Her kan du finne ut hvilke øvelser du kan gjøre på et apparat \n"
+	    			+ "0) \t Skriv 0 om du ønsker å avslutte programmet");
 	    			
 	    	int funksj = scanner.nextInt();
 	    	
@@ -31,7 +31,7 @@ public class Main {
 	    		treningsdagbok.Registrer r = new treningsdagbok.Registrer();
 	    		r.connect();
 	    		
-	    		System.out.println("�nsker du � registrere en ny trenings�kt (1), apparat (2) eller �velse(3)");
+	    		System.out.println("ønsker du å registrere en ny treningsøkt (1), apparat (2) eller øvelse(3)");
 	    		int funk = scanner.nextInt();
 	    		if (funk == 1) {
 	    			System.out.println("Skriv inn dato (format: YYYY-MM-DD)");
@@ -59,7 +59,7 @@ public class Main {
 	    			r.registrer_aparat(id, navn, besk);
 	    		}
 	    		if (funk == 3) {
-	    			System.out.println("Skriv inn �velsesid");
+	    			System.out.println("Skriv inn øvelsesid");
 	    			int id = scanner.nextInt();
 	    			System.out.println("Skriv inn navn");
 	    			String navn = scanner.next();
@@ -72,28 +72,28 @@ public class Main {
 	    	if (funksj == 2) {
 	    		showWorkout show = new showWorkout();
 	    	    show.connect();
-	    		System.out.println("Skriv inn hvor mange �kter du har lyst til � se:");
+	    		System.out.println("Skriv inn hvor mange økter du har lyst til å se:");
 	    		int n = scanner.nextInt();
 		 		show.showWorkOuts(n);
 	    	}
 	    	
 	    	if (funksj == 3) {
-	    		System.out.println("Hvilken �velse �nsker du � se resultatlogg for? ");
+	    		System.out.println("Hvilken øvelse ønsker du å se resultatlogg for? ");
 	    		String ovelse = scanner.next();
-	    		System.out.println("�nsker du � finne tidsintervall basert p� dato (velg 1) eller (start)tidspunk i l�pet av en dag (velg 2)?");
+	    		System.out.println("ønsker du å finne tidsintervall basert på dato (velg 1) eller (start)tidspunk i løpet av en dag (velg 2)?");
 	    		int intervall = scanner.nextInt();
 	    		String start = null;
 	    		String slutt = null;
 	    		if (intervall == 1) {
-	    			System.out.println("Velg startdato p� format YYYY-MM-DD");
+	    			System.out.println("Velg startdato på format YYYY-MM-DD");
 	    			start = scanner.next();
-	    			System.out.println("Velg sluttdato p� format YYYY-MM-DD");
+	    			System.out.println("Velg sluttdato på format YYYY-MM-DD");
 	    			slutt = scanner.next();
 	    		}
 	    		if (intervall == 2) {
-	    			System.out.println("Velg startid p� format HHMMSS");
+	    			System.out.println("Velg startid på format HHMMSS");
 	    			start = scanner.next();
-	    			System.out.println("Velg sluttdato p� format HHMMSS");
+	    			System.out.println("Velg sluttdato på format HHMMSS");
 	    			slutt = scanner.next();
 	    		}
 	    		ResultatLogg result = new ResultatLogg();
@@ -107,18 +107,18 @@ public class Main {
 	    	if (funksj == 4){
 	    		nyGruppe p = new nyGruppe();
 	    		p.connect();
-	    		System.out.println("�nsker du � opprette en ny muskelgruppe, svar y dersom ja og n dersom nei");
+	    		System.out.println("ønsker du å opprette en ny muskelgruppe, svar y dersom ja og n dersom nei");
 	    		String svar= scanner.next();
 	    		if(svar.equals("y")){
-	    			System.out.println("Hvilke musklgruppe �nsker du � lage en gruppe for? "); 
+	    			System.out.println("Hvilke musklgruppe ønsker duålage en gruppe for? "); 
 		    		String gruppeNavn= scanner.next();
 		            System.out.println("Hvilke id skal muskelgruppen ha?");
 		    		int id= scanner.nextInt();
 		    		scanner.nextLine();
 		    		p.insettOvelseGruppe(id, gruppeNavn);
-		    		System.out.println("Hvilke �velser vil du at skal ligge i gruppen, skriv inn id(er)");
+		    		System.out.println("Hvilke øvelser vil du at skal ligge i gruppen, skriv inn id(er)");
 		    		p.getOvelser();
-		    		System.out.println("Velg en �velse, og trykk enter. N�r du er ferdig kan skriv 0");
+		    		System.out.println("Velg en øvelse, og trykk enter. Når du er ferdig kan skriv 0");
 		    		while (true) {
 		    			int nyOvelse = scanner.nextInt();
 		    			if (nyOvelse == 0) {
@@ -129,13 +129,13 @@ public class Main {
 		    			}
 		    		}
 	    		}
-	    		System.out.println("Hvilke Gruppeid �nsker du � se �velser fra?");
+	    		System.out.println("Hvilke Gruppeid ønsker du å se øvelser fra?");
 	    		int gruppeId2= scanner.nextInt();
 	    		p.OvelseIgruppe(gruppeId2);
 	    	}
 	    	
 	    	if (funksj == 5) { 
-			    System.out.println("Skriv navnet p� apparatet: ");
+			    System.out.println("Skriv navnet på apparatet: ");
 			    String navn = scanner.next();
 			    
 			    OvelserPaApparat hei = new OvelserPaApparat ();
